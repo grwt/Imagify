@@ -47,7 +47,7 @@ const AppContextProvider=(props)=>{
 
   const generateImage=async(prompt)=>{
     try {
-      const { data } = await axios.post(
+      const { data } = await axios.get(
   backendUrl + '/api/image/generate-image',
   { prompt },
   { headers: { Authorization: `Bearer ${token}` } }
