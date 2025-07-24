@@ -7,7 +7,10 @@ import imageRouter from './routes/imageRoutes.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://imagify-client-ten.vercel.app', // OR use '*' for all origins (not recommended for production)
+  credentials: true // if you're using cookies or Authorization headers
+}))
 app.use(express.json());
 
 // Connect to DB
