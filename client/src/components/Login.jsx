@@ -30,7 +30,7 @@ const Login = () => {
       }
       else {
         
-        const {data}=await axios.get(`${backendUrl}/api/user/register`,{name ,email,password})
+        const {data}=await axios.post(`${backendUrl}/api/user/register`,{name ,email,password})
         if(data.success){
           setToken(data.token)
           setUser(data.user)
