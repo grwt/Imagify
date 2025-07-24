@@ -16,7 +16,12 @@ await connectDB();
 app.use('/api/user',userRouter)
 app.use('/api/image',imageRouter)
 app.get('/',(req,res)=>{
-  res.send('API is running');
+  try {
+    res.send('API is running');
+  } catch (error) {
+    console.error("Error in / route:", error);
+    res.status(500).json({ error: error.message });
+  }
 });
 
 export default function handler(req, res) {
