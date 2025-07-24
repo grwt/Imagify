@@ -21,7 +21,7 @@ const onSubmitHandler=async(e)=>{
   if(input){
     const image=await generateImage(input);
     if(image.error){
-      navigate('/buy');
+      navigate('/buy' );
       setLoading(false);
       return;
     }
