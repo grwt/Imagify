@@ -1,29 +1,26 @@
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config'  
+import 'dotenv/config';
 import connectDB from './config/mongodb.js';
 import userRouter from './routes/userRoutes.js';
 import imageRouter from './routes/imageRoutes.js';
 
-
 const app = express();
-const PORT = process.env.PORT || 4000;
 
 app.use(cors());
-app.use(express.json());  
+app.use(express.json());
+
+// Connect to DB
 await connectDB();
 
-app.use('/api/user',userRouter)
-app.use('/api/image',imageRouter)
-app.get('/',(req,res)=>{
-  try {
-    res.send('API is running');
-  } catch (error) {
-    console.error("Error in / route:", error);
-    res.status(500).json({ error: error.message });
-  }
+// Routes
+app.use('/api/user', userRouter);
+app.use('/api/image', imageRouter);
+
+// Test route
+app.get('/', (req, res) => {
+  res.send('API is running');
 });
 
-export default function handler(req, res) {
-  return app(req, res);
-}
+// Export app wrapped in Vercel-compatible handler
+export default app;

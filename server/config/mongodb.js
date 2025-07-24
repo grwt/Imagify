@@ -6,7 +6,7 @@ dotenv.config();
 const connectDB= async ()=>{
   try{
     const connectionInstance=await
-    mongoose.connect(`${process.env.MONGODB_URI}/Imagify`)
+    mongoose.connect(`${process.env.MONGODB_URL}/Imagify`)
     console.log(`\n MONGODB connected !! DB HOST: 
       ${connectionInstance}`);
 
