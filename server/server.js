@@ -8,7 +8,7 @@ import imageRouter from './routes/imageRoutes.js';
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://imagify-client-azure.vercel.app'], // ✅ add both
+  origin: 'https://imagify-client-azure.vercel.app', // ✅ add both
   credentials: true // ✅ since you're sending Authorization headers
 }));
 app.use(express.json());
