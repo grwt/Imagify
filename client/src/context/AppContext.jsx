@@ -72,7 +72,7 @@ const AppContextProvider=(props)=>{
     }
 
   } catch (error) {
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message || error.message);
     return { error: true, reason: 'exception' };
   }
 };
